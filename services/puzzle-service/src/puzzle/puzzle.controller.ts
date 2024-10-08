@@ -10,17 +10,21 @@ export class PuzzleController {
     @UseInterceptors(CacheInterceptor) // Automatically cache the response for this endpoint
     @CacheTTL(30) // override TTL to 30 seconds
     @Get()
-    async getAllPuzzles(): Promise<any> {
+    async getAllPuzzles(): Promise<puzzle> {
         return await this.service.getAllPuzzles();
     }
 
-  @Get('/:id')
-  async getPuzzle(@Param('id') id: number): Promise<any> {
-    return await this.service.getPuzzle(+id);
-  } 
+    @UseInterceptors(CacheInterceptor) // Automatically cache the response for this endpoint
+    @CacheTTL(30) // override TTL to 30 seconds
+    @Get('/:id')
+    async getPuzzle(@Param('id') id: number): Promise<puzzle> {
+      return await this.service.getPuzzle(+id);
+    } 
 
-  @Get('/date/:date')
-  async getPuzzleByDate(@Param('date') Date: string): Promise<any> {
-    return await this.service.getPuzzle(+Date);
-  } 
+    @UseInterceptors(CacheInterceptor) // Automatically cache the response for this endpoint
+    @CacheTTL(30) // override TTL to 30 seconds
+    @Get('/date/:date')
+    async getPuzzleByDate(@Param('date') Date: string): Promise<puzzle> {
+      return await this.service.getPuzzle(+Date);
+    } 
 }

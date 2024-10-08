@@ -24,18 +24,21 @@ export class PuzzleService {
     }
 
     async getPuzzle(id:number): Promise<puzzle> {
-        return this.puzzles.find(puzzle => puzzle.id === id);
+            // check if data is in cache:
+        const cachedData = await this.cacheService.get<{ puzzle: puzzle }>(id.toString());
+        if (cachedData) {
+            console.log(`Getting data from cache!`);
+            return cachedData.puzzle;
+        }
+        else {
+            // if not, call data and set the cache: 
+            const res = this.puzzles.find(puzzle => puzzle.id === id);
+            await this.cacheService.set(id.toString(), res);
+            return res;
+        }
     }
 
     async getPuzzleByDate(date: string): Promise<puzzle> {
         return this.puzzles.find(puzzle => puzzle.date === date);
     }
-    /* if (puzzle) {
-      await this.cacheService.set(formattedDate, puzzle);
-      const cachedData = await this.cacheService.get(formattedDate);
-      console.log('data set to cache', cachedData);
-      return puzzle;
-    } else {
-      throw new Error('Puzzle not found for the given date');
-    } */
 }
