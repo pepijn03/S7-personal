@@ -34,6 +34,7 @@ export class PuzzleService {
             // if not, call data and set the cache: 
             const res = this.puzzles.find(puzzle => puzzle.id === id);
             await this.cacheService.set(id.toString(), res);
+            console.log(`Put data in cache!`);
             return res;
         }
     }
