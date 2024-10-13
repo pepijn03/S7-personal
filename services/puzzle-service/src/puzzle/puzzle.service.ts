@@ -38,7 +38,7 @@ export class PuzzleService {
         }
     }
 
-    async getPuzzleByDate(date: string): Promise<puzzle> {
-        return this.puzzles.find(puzzle => puzzle.date === date);
+    async getPuzzleByDate(day: string): Promise<puzzle> {
+        return this.puzzles.find(puzzle => puzzle.date === day);
     }
 }
