@@ -1,0 +1,36 @@
+name: Angular Build
+
+# {1}
+on:
+  push:
+    paths:
+      - 'puzzle-app-frontend/**'
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  angular:
+    name: Angular Build
+    defaults:
+      run:
+        working-directory: ./puzzle-app-frontend 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+    
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Adding Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 20
+        
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Angular App
+      run: npm run build
