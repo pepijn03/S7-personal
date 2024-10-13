@@ -11,15 +11,14 @@ on:
 jobs:
   angular:
     name: Angular Build
+    defaults:
+      run:
+        working-directory: ./puzzle-app-frontend 
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    defaults:
-      run:
-        working-directory: ./puzzle-app-frontend
-
     steps:
       # {2}
       - name: Checkout the source code
