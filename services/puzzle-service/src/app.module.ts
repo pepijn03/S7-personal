@@ -13,14 +13,12 @@ console.log('Connecting to Redis at:', process.env.REDIS_URL);
 @Module({
   imports: [ConfigModule.forRoot({
     envFilePath: '../../.env',
-
   }),
     CacheModule.register({
     isGlobal: true,
     store: redisStore,
     url: process.env.REDIS_URL ,
   }),
-  
   puzzlemodule],
   controllers: [AppController],
   providers: [AppService],

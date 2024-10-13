@@ -10,7 +10,6 @@ import * as fs from 'fs';
 @Injectable()
 export class PuzzleService {
     constructor(
-        private readonly httpService: HttpService,
         @Inject(CACHE_MANAGER) private cacheService: Cache,
     ) {}
 
@@ -19,7 +18,7 @@ export class PuzzleService {
         {id : 2, date: '2024-10-08', verticalHints: ["vhint1", "vhint2", "vhint3"], horizontalHints: ["hhint1", "hhint2", "hhint3"], answer: ["word1", "word2", "word3"]},
     ];
 
-    async getAllPuzzles(): Promise<any> {
+    async getAllPuzzles(): Promise<puzzle[]> {
         return this.puzzles;
     }
 

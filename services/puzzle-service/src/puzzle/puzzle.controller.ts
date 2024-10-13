@@ -10,7 +10,7 @@ export class PuzzleController {
     @UseInterceptors(CacheInterceptor) // Automatically cache the response for this endpoint
     @CacheTTL(30) // override TTL to 30 seconds
     @Get()
-    async getAllPuzzles(): Promise<puzzle> {
+    async getAllPuzzles(): Promise<puzzle[]> {
         return await this.service.getAllPuzzles();
     }
 
