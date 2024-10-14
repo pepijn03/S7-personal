@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {getAllProgress} = require('../controllers/progressController');
+const {getAllProgress} = require('../Controllers/progressController');
 
 /* GET home page. */
 router.get('/', getAllProgress);
