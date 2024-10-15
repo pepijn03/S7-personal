@@ -1,3 +1,4 @@
+name: Puzzle Service
 services:
   redis_db:
     image: redis
@@ -10,18 +11,8 @@ services:
       dockerfile: Dockerfile
     container_name: puzzle-microservice
     environment:
-      - REDIS_URL=redis_db
+      - REDIS_URL=redis://redis_db:6379
     ports:
-      - '3001:3001'
-    volumes:
-      - ./src:/app/src
+      - '3001:3002'
     depends_on:
       - redis_db
-
-
-      
-
-
-volumes:
-  redis:
-    driver: local
