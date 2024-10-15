@@ -94,7 +94,7 @@ services.forEach(({ route, target }) => {
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', getStatus = function(req, res, next) {
   res.send('Gateway API running!');
 });
 

@@ -38,10 +38,6 @@ jobs:
   push-image-to-dockerhub:
         runs-on: ubuntu-latest
     
-        defaults:
-          run:
-            working-directory: ./services/progress-service
-    
         steps:
           -
             name: Checkout
@@ -65,7 +61,7 @@ jobs:
             uses: docker/build-push-action@v3
             with:
               context: .
-              file: ./Dockerfile
+              file: ./puzzle-app-frontend/Dockerfile
               push: true
-              tags: pepijn03/progress-service:latest
+              tags: pepijn03/puzzle-app-frontend:latest
     

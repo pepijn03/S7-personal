@@ -39,10 +39,6 @@ jobs:
   push-image-to-dockerhub:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./gatewayapp
-
     steps:
       -
         name: Checkout
@@ -66,6 +62,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./Dockerfile
+          file: ./gatewayapp/Dockerfile
           push: true
           tags: pepijn03/gateway:latest

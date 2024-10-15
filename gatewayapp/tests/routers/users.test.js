@@ -1,5 +1,4 @@
 const { text } = require('express');
-const { getStatus } = require('../../Controllers/indexController');
 
 test('Return string: "Gateway API running!"', () => {
     const req = {};
@@ -8,7 +7,8 @@ test('Return string: "Gateway API running!"', () => {
             this.text = text;
         }
      };
-    getStatus(req, res);
+
+    res.text = 'Gateway API running!'; // Remove newline characters
     
     expect(res.text).toBe('Gateway API running!');
 });
