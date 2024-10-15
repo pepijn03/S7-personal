@@ -4,6 +4,8 @@ const {setupLogging} = require("./logging.js");
 const cors = require("cors");
 const helmet = require("helmet");
 const { createProxyMiddleware } = require("http-proxy-middleware");
+// Load the dotenv dependency and call the config method on the imported object
+require('dotenv').config();
 
 router.use(cors()); // Enable CORS
 router.use(helmet()); // Add security headers
