@@ -1,5 +1,5 @@
-services:
 name: RedisDB
+services:
   redis_db:
     image: redis
     ports:

@@ -13,6 +13,6 @@ services:
     environment:
       - REDIS_URL=redis://redis_db:6379
     ports:
-      - '3001:3002'
+      - '3003:3003'
     depends_on:
       - redis_db
