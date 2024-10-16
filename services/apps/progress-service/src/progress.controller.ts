@@ -6,7 +6,7 @@ export class ProgressController {
   constructor(private readonly progressService: ProgressService) {}
 
   @Get()
-  getHello(): string {
-    return this.progressService.getHello();
+  getProgress(): string {
+    return this.progressService.getProgress();
   }
 }

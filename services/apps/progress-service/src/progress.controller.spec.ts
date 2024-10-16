@@ -15,8 +15,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(progressController.getHello()).toBe('Hello World!');
+    it('should return "Here is the progress!"', () => {
+      expect(progressController.getProgress()).toBe('Here is the progress!');
     });
   });
 });
