@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PuzzleServiceController } from './puzzle-service.controller';
-import { PuzzleServiceService } from './puzzle-service.service';
+import { PuzzleController } from './puzzle.controller';
+import { PuzzleService } from './puzzle.service';
 
 describe('PuzzleServiceController', () => {
-  let puzzleServiceController: PuzzleServiceController;
+  let puzzleServiceController: PuzzleController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [PuzzleServiceController],
-      providers: [PuzzleServiceService],
+      controllers: [PuzzleController],
+      providers: [PuzzleService],
     }).compile();
 
-    puzzleServiceController = app.get<PuzzleServiceController>(PuzzleServiceController);
+    puzzleServiceController = app.get<PuzzleController>(PuzzleController);
   });
 
   describe('root', () => {

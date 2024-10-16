@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { PuzzleServiceModule } from './../src/puzzle-service.module';
+import { PuzzleServiceModule } from '../src/puzzle.module';
 
 describe('PuzzleServiceController (e2e)', () => {
   let app: INestApplication;
