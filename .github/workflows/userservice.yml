@@ -10,6 +10,10 @@ on:
   pull_request:
     branches: [ "main", "dev" ]
 
+defaults:
+      run:
+        working-directory: ./services/userservice
+
 jobs:
   build:
 
@@ -19,10 +23,6 @@ jobs:
       matrix:
         node-version: [18.x, 20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    defaults:
-      run:
-        working-directory: ./services/userservice
 
     steps:
     - uses: actions/checkout@v4
@@ -62,7 +62,7 @@ jobs:
           uses: docker/build-push-action@v3
           with:
             context: .
-            file: .services/userservice/Dockerfile
+            file: ./Dockerfile
             push: true
             tags: pepijn03/user-service:latest
   

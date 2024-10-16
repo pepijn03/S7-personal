@@ -8,12 +8,14 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+      run:
+        working-directory: ./puzzle-app-frontend     
+
 jobs:
   angular:
     name: Angular Build
-    defaults:
-      run:
-        working-directory: ./puzzle-app-frontend 
+    
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -61,7 +63,7 @@ jobs:
             uses: docker/build-push-action@v3
             with:
               context: .
-              file: ./puzzle-app-frontend/Dockerfile
+              file: ./Dockerfile
               push: true
               tags: pepijn03/puzzle-app-frontend:latest
     
