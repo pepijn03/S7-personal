@@ -62,8 +62,8 @@ jobs:
           name: Build and push
           uses: docker/build-push-action@v6
           with:
-            context: .
-            file: ./services/userservice/Dockerfile
+            context: ./services/userservice
+            file: ./Dockerfile
             push: true
             tags: pepijn03/user-service:latest
   
