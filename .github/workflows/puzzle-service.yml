@@ -64,5 +64,5 @@ jobs:
             context: ./services/puzzle-service
             file: ./services/puzzle-service/Dockerfile
             push: true
-            tags: pepijn03/progress-service:latest
+            tags: pepijn03/puzzle-service:latest
   
