@@ -61,7 +61,7 @@ jobs:
             uses: docker/build-push-action@v3
             with:
               context: ./puzzle-app-frontend
-              file: ./Dockerfile
+              file: ./puzzle-app-frontend/Dockerfile
               push: true
               tags: pepijn03/puzzle-app-frontend:latest
     

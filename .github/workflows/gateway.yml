@@ -65,6 +65,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./gatewayapp
-          file: ./Dockerfile
+          file: ./gatewayapp/Dockerfile
           push: true
           tags: pepijn03/gateway:latest

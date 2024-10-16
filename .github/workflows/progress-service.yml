@@ -64,7 +64,7 @@ jobs:
           uses: docker/build-push-action@v6
           with:
             context: ./services
-            file: ./progress-service/Dockerfile
+            file: ./services/progress-service/Dockerfile
             push: true
             tags: pepijn03/progress-service:latest
   

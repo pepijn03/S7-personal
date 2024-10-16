@@ -62,7 +62,7 @@ jobs:
           uses: docker/build-push-action@v6
           with:
             context: ./services/puzzle-service
-            file: ./Dockerfile
+            file: ./services/puzzle-service/Dockerfile
             push: true
             tags: pepijn03/progress-service:latest
   
