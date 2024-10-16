@@ -9,10 +9,6 @@ on:
   pull_request:
     branches: [ "main", "dev" ]
 
-defaults:
-      run:
-        working-directory: ./gatewayapp
-
 jobs:
   build-application:
 
@@ -22,6 +18,10 @@ jobs:
       matrix:
         node-version: [18.x, 20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    defaults:
+      run:
+        working-directory: ./gatewayapp
 
     steps:
     - uses: actions/checkout@v4
@@ -38,29 +38,33 @@ jobs:
   push-image-to-dockerhub:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./gatewayapp
+
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       -
         name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
         with:
           version: v0.7.0
       -
         name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Dockerfile
+          file: ./gatewayapp/Dockerfile
           push: true
           tags: pepijn03/gateway:latest
